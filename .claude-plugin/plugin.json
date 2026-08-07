@@ -1,0 +1,9 @@
+{
+  "name": "rody-creator",
+  "version": "0.8.0",
+  "description": "Agent skill for creators building and shipping their own Rodyssey webapp with @rodyssey/cli (ro): create, deploy, configure, and go live via the share ladder.",
+  "author": { "name": "airconcepts", "url": "https://github.com/airconcepts" },
+  "homepage": "https://github.com/airconcepts/rody-skills",
+  "repository": "https://github.com/airconcepts/rody-skills.git",
+  "keywords": ["rodyssey", "ro", "cli", "skill", "agent", "webapp", "creator"]
+}

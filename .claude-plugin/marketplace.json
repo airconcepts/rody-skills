@@ -1,0 +1,11 @@
+{
+  "name": "rody-skills",
+  "owner": { "name": "airconcepts", "url": "https://github.com/airconcepts" },
+  "plugins": [
+    {
+      "name": "rody-creator",
+      "source": "./",
+      "description": "Creator-tier Rodyssey CLI skill + /go-live and /ro-doctor commands."
+    }
+  ]
+}
