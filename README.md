@@ -69,8 +69,8 @@ ro app share family -e production -y
 ## Updating
 
 Update through the same channel you installed with (marketplace update, re-copy,
-or plugin re-install). The plugin version tracks the `@rodyssey/cli` release the
-content documents — see `.claude-plugin/plugin.json`.
+or plugin re-install). The plugin version tracks the `@rodyssey/cli` release line
+the content was last verified against — see `.claude-plugin/plugin.json`.
 
 ---
 

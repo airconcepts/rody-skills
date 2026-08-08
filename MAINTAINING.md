@@ -9,11 +9,15 @@ Canonical files (edit these, here):
 
 1. **Version bump** (when material to users): `version` in both
    `.claude-plugin/plugin.json` and root `plugin.json` (kept identical; tracks
-   the `@rodyssey/cli` release the content documents).
+   the `@rodyssey/cli` release line the content was last verified against).
 2. **Sync ro-cli's mirrors**: in a ro-cli checkout with this repo at
    `../rody-skills`, run `bun run sync-public-skills`, then commit ro-cli.
    The mirror list lives in ro-cli's `scripts/sync-public-skills.ts`; ro-cli's
-   test suite has a guard test that fails if mirrors drift from this repo.
+   `scripts/sync-public-skills.test.ts` has a guard test that fails if mirrors
+   drift from this repo — but it only runs when someone runs `bun test` inside
+   a ro-cli checkout with this repo present as the sibling `../rody-skills`.
+   There is no CI enforcement of this; drift can go unnoticed until someone
+   happens to run that test locally with both repos checked out side by side.
 3. **Probe discipline**: changes to behavioral sections (especially the
    "What you may run unasked" authorization rules) follow the writing-skills
    RED/GREEN probe discipline used in ro-cli — test the wording on fresh agents
