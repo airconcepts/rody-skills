@@ -103,9 +103,15 @@ including that **every visual slot renders something intentional** (step 2's con
 art or a designed no-image look, never an empty box). SDK calls only work inside the platform
 iframe — verify pure-UI behavior locally and SDK behavior after the user deploys.
 
-## 7. Stop
+## 7. Hand over for review, then stop
+
+When the build passes your own checks, **leave the dev server running** (start it in the
+background if your environment supports that; otherwise give the user the exact command to run)
+and **hand the user the local URL** so they can review the app themselves — don't make them ask
+for it, and don't tear the server down while they're looking.
 
 Do **not** deploy, push config, or share unasked — those are the user's calls (rody-creator's
-"What you may run unasked" applies). Report what you built and ask one question: *"It's ready —
-want me to deploy it?"* When the user wants others to see it, `/go-live` is the guided ladder
-climb.
+"What you may run unasked" applies). Report what you built, give the review URL, and ask one
+question: *"It's ready — take a look at <url>. Want me to deploy it?"* Fold in their review
+feedback first if they have any. When the user wants others to see it, `/go-live` is the guided
+ladder climb.
