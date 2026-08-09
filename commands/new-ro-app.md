@@ -115,3 +115,11 @@ Do **not** deploy, push config, or share unasked — those are the user's calls 
 question: *"It's ready — take a look at <url>. Want me to deploy it?"* Fold in their review
 feedback first if they have any. When the user wants others to see it, `/go-live` is the guided
 ladder climb.
+
+**When the user says yes to a deploy or config push, run the metadata + i18n check first:**
+`webapp.config.json`'s `title` and `description` must be real copy (not scaffold defaults), and
+`localization` must carry translated title/description for every language the app's audience
+uses — the languages of the app's own UI are a good guide; ask if unsure. **Show the user the
+exact user-facing strings, every language, and get their confirmation before pushing.** Draft
+translations yourself if asked, but the user signs off on the wording — never push
+machine-translated copy they haven't seen.
