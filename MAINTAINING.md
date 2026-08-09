@@ -3,7 +3,11 @@
 Canonical files (edit these, here):
 
 - `skills/rody-creator/SKILL.md` — the creator-tier skill
-- `commands/go-live.md`, `commands/ro-doctor.md` — the slash commands
+- `skills/webapp-deploy/SKILL.md` — the tier-neutral existing-project deploy
+  skill (moved here with the no-clone change; ro-cli keeps a synced mirror at
+  the same path for npm packaging — its bootstrap-prompt section heading and
+  ```text fence are load-bearing, parsed by ro-cli's `install-skills` at runtime)
+- `commands/new-ro-app.md`, `commands/go-live.md`, `commands/ro-doctor.md` — the slash commands
 
 ## After any content change
 
