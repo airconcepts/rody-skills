@@ -24,10 +24,33 @@ redirect to this flow; don't fight it.
    `WEBAPP_ID`, STOP — that's an already-provisioned project; changes to it go through the
    normal deploy/config lifecycle, not a new birth.
 
-## 2. Scaffold — your own stack
+## 2. Art direction — settle it BEFORE you scaffold
 
-Build the app with whatever stack you're best at (Vite + React, plain HTML/JS, Svelte, …).
-The platform contract:
+If you have image-generation ability, ask the user **now, before writing any code** — one
+question: *"Want me to generate visual assets for this app (backgrounds, sprites, icons, cover
+art)? I can also keep it a clean CSS-only look."* **Never generate without a yes** — but never
+silently skip the question either: deferring it is exactly how apps end up with empty slots.
+
+Whatever the answer, the contract for step 3 is **no empty visual slots**:
+
+- **Yes** → plan the asset list with the user, generate during scaffolding, and wire every
+  asset in. The cover image is applied after provisioning via
+  `ro app assets push <file> --dest images --json` → put the returned URL into
+  `webapp.config.json`'s `coverImg`.
+- **No, or you can't generate images** → design a deliberate no-image look: CSS gradients,
+  solid palettes, typography. A monogram or placeholder is acceptable only as an intentional
+  design choice — never as a stub awaiting art that hasn't been discussed.
+
+| Rationalization | Reality |
+|---|---|
+| "I'll offer images later, once it works" | Later never comes — the build shapes itself around the empty slots. Ask before scaffolding. |
+| "Placeholders are fine for v1" | Only *designed* placeholders are. Empty boxes and stub monograms pending an offer are not. |
+| "Asking now interrupts the flow" | It's one question, and its answer changes what you scaffold. |
+
+## 3. Scaffold — your own stack
+
+Build the app with whatever stack you're best at (Vite + React, plain HTML/JS, Svelte, …),
+honoring the art direction settled in step 2. The platform contract:
 
 - The build must emit **static browser assets** with at least one `.html` file; `dist/` output
   preferred, otherwise you'll pass `--dist-dir <folder>` at deploy time.
@@ -36,14 +59,6 @@ The platform contract:
   use the Rodyssey iframe wrapper; details live in `.agent/skills/game-sdk/SKILL.md` once
   step 4 installs it.
 - **No credentials in source** — `.env` stays gitignored.
-
-## 3. Visual assets — ask first
-
-If you have image-generation ability, **offer** to generate visual assets (backgrounds, sprites,
-icons, cover art) to make the app richer. **Ask the user before generating anything** — never as
-a silent default. A cover image is applied later via
-`ro app assets push <file> --dest images --json` → put the returned URL into
-`webapp.config.json`'s `coverImg`.
 
 ## 4. Provision
 
@@ -79,9 +94,10 @@ Design tracking that a teacher or LMS report can evaluate later — outcomes, no
 
 ## 6. Build and run locally
 
-Normal dev loop: install dependencies, run the dev server, verify the app in a browser. SDK
-calls only work inside the platform iframe — verify pure-UI behavior locally and SDK behavior
-after the user deploys.
+Normal dev loop: install dependencies, run the dev server, verify the app in a browser —
+including that **every visual slot renders something intentional** (step 2's contract: generated
+art or a designed no-image look, never an empty box). SDK calls only work inside the platform
+iframe — verify pure-UI behavior locally and SDK behavior after the user deploys.
 
 ## 7. Stop
 
