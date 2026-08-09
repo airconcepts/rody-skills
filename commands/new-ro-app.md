@@ -1,6 +1,6 @@
 ---
 description: Guided no-clone birth of a creator-tier webapp — scaffold with your own stack, provision with ro app init, design tracking, stop before deploy
-argument-hint: [app name]
+argument-hint: [app name, or what the app is about]
 ---
 
 Create a brand-new creator-tier Rodyssey webapp **without cloning anything**: you scaffold the
@@ -19,10 +19,14 @@ redirect to this flow; don't fight it.
    membership from an RO admin — nothing to fix locally.
 2. **Tier:** if `ro auth me` prints `Tier: staff`, stop and tell the user this command is for
    creator accounts (staff scaffold with `ro app create`).
-3. **Project directory:** if `$ARGUMENTS` names the app, create that folder and work inside it;
-   otherwise ask the user for a name. If the working directory already has a `.env` containing
-   `WEBAPP_ID`, STOP — that's an already-provisioned project; changes to it go through the
-   normal deploy/config lifecycle, not a new birth.
+3. **Project directory:** `$ARGUMENTS` may be an app name (`fraction-quest`) or a description
+   (`about fractions for grade 4`). From a description, derive a short kebab-case folder name
+   and a display title, confirm both with the user in one breath (fold it into the step-2 art
+   question — don't ask twice), and keep the description as your brief for what to build. With
+   no `$ARGUMENTS`, ask what the app is about. Create the folder and work inside it. If the
+   working directory already has a `.env` containing `WEBAPP_ID`, STOP — that's an
+   already-provisioned project; changes to it go through the normal deploy/config lifecycle,
+   not a new birth.
 
 ## 2. Art direction — settle it BEFORE you scaffold
 
