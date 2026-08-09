@@ -116,10 +116,17 @@ question: *"It's ready — take a look at <url>. Want me to deploy it?"* Fold in
 feedback first if they have any. When the user wants others to see it, `/go-live` is the guided
 ladder climb.
 
-**When the user says yes to a deploy or config push, run the metadata + i18n check first:**
-`webapp.config.json`'s `title` and `description` must be real copy (not scaffold defaults), and
-`localization` must carry translated title/description for every language the app's audience
-uses — the languages of the app's own UI are a good guide; ask if unsure. **Show the user the
-exact user-facing strings, every language, and get their confirmation before pushing.** Draft
-translations yourself if asked, but the user signs off on the wording — never push
-machine-translated copy they haven't seen.
+**When the user says yes to a deploy or config push, run the launcher-metadata check first** —
+all three items, then one confirmation:
+
+- **Cover image:** `webapp.config.json`'s `coverImg` is set and points at the intended image —
+  an app without a cover renders as an empty card in the launcher. If it's missing, produce one
+  per step 2's art direction (generated with consent, or a designed static card), then
+  `ro app assets push cover.png --dest images --json` and put the returned URL into `coverImg`.
+- **Copy:** `title` and `description` are real copy, not scaffold defaults.
+- **i18n:** `localization` carries translated title/description for every language the app's
+  audience uses — the languages of the app's own UI are a good guide; ask if unsure.
+
+**Show the user the cover image and the exact user-facing strings, every language, and get
+their confirmation before pushing.** Draft translations yourself if asked, but the user signs
+off on the wording — never push machine-translated copy they haven't seen.

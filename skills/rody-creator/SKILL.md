@@ -183,7 +183,7 @@ Auto-detects the SPA build pipeline (build → upload assets in batches → zip 
 
 Use **`coverImg`** for the cover image. There is no `coverUrl` field for creator apps — don't invent one; only `coverImg` is ever accepted.
 
-**Check i18n whenever the user approves a push or deploy.** `title`/`description` are the launcher copy families and schools browse; `localization` holds their translations. Before running the approved `config push`/`config set` (or a deploy that will publish metadata), verify localization covers the languages the app's audience uses, show the user the exact strings per language, and confirm the wording with them. Draft translations if asked — but the user signs off; never push machine-translated copy unseen.
+**Check the launcher metadata whenever the user approves a push or deploy.** `coverImg`, `title`, and `description` are the card families and schools browse; `localization` holds the copy's translations. Before running the approved `config push`/`config set` (or a deploy that will publish metadata), verify all three: a cover image is set (no `coverImg` = an empty card — produce one via the assets recipe above), the copy is real (not scaffold defaults), and localization covers the languages the app's audience uses. Show the user the cover and the exact strings per language, and confirm with them. Draft translations if asked — but the user signs off; never push machine-translated copy unseen.
 
 ⚠️ Never seed `webapp.config.json` from `ro app config get --out` — only `pull` strips the CMS's empty defaults. Feeding a raw `get` response into `push` clears real fields (they read as explicit clear-signals).
 
