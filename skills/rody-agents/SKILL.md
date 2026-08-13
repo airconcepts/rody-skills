@@ -134,7 +134,7 @@ ro agent say <id> "點解會咁？"   --session chat.json     # same file = same
 
 ## Content packs — `ro agent push <dir>`
 
-A pack is a directory: `pack.json` (`{"name": "..."}`) + `knowledge/*.md` (frontmatter `title:` / `aiGuidance:`) + `scenes/*.json` (full scene drafts; `characterId`/`knowledgeIds` may hold slugs — uuid-shaped values pass through). All-local validation runs before any write; `--dry-run` plans without writing.
+A pack is a directory: `pack.json` (`{"name": "..."}`) + `knowledge/*.md` (frontmatter `title:` / `aiGuidance:`) + `scenes/*.json` (full scene drafts; `characterId`/`knowledgeIds` may hold slugs — uuid-shaped values pass through) + optional `assets/`. Scene media may use pack-relative urls like `assets/hanzi/shan.svg` — push uploads each unique file into the school's storage and rewrites the urls, so packs stay portable (absolute and data urls pass through untouched). All-local validation runs before any write; `--dry-run` plans without writing.
 
 Identity and updates: scene ids derive from the pack name + scene slug + your school, so **re-pushing updates the same agents in place — renaming the pack or a scene slug orphans the live agent and creates a new one**. Knowledge upserts by TITLE within the school. Unknown character slugs follow choose-don't-forge above (`--character-map ah-zung=<existing-slug>` overrides per slug).
 
