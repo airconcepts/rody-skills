@@ -7,6 +7,9 @@ Canonical files (edit these, here):
   skill (moved here with the no-clone change; ro-cli keeps a synced mirror at
   the same path for npm packaging — its bootstrap-prompt section heading and
   ```text fence are load-bearing, parsed by ro-cli's `install-skills` at runtime)
+- `skills/rody-agents/SKILL.md` — the teacher-tier LMS agent-authoring skill
+  (agents, knowledge, suggestions; ro-cli keeps synced mirrors under
+  `.claude/skills/rody-agents/` and `.cursor/skills/rody-agents/`)
 - `commands/new-ro-app.md`, `commands/go-live.md`, `commands/ro-doctor.md` — the slash commands
 
 ## After any content change
@@ -32,6 +35,10 @@ Canonical files (edit these, here):
 - No staff content, ever (promote, global-config, entity groups, GameSDK
   actions, `/ship-prod`, dev/staging URLs). The staff edition lives in the
   private ro-cli repo.
+- The LMS authoring surface (`ro agent`/`ro knowledge`/`ro character`) is
+  teacher-tier and belongs here in `rody-agents` — but its **staff** specifics
+  (acting schools, dev/staging, local-dev workers) stay in the private ro-cli
+  staff skill, same rule as above.
 - No LICENSE file and no `license` manifest field — distribution terms are the
   README's © line, by design.
 

@@ -8,7 +8,7 @@
     {
       "name": "rody-creator",
       "source": "./",
-      "description": "Creator-tier Rodyssey CLI skill + webapp-deploy skill and the /new-ro-app, /go-live, /ro-doctor commands."
+      "description": "Creator-tier Rodyssey CLI skill + webapp-deploy skill, the rody-agents teacher skill for LMS agent authoring, and the /new-ro-app, /go-live, /ro-doctor commands."
     }
   ]
 }

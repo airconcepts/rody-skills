@@ -2,13 +2,15 @@
 
 Agent skills and slash commands for building on Rodyssey with `@rodyssey/cli` (`ro`).
 
-This repo is the canonical, public distribution home for the **creator-tier** agent
-assets. (RO staff use a separate internal edition that does not live here.)
+This repo is the canonical, public distribution home for the **creator-tier** and
+**teacher-tier** agent assets. (RO staff use a separate internal edition that does
+not live here.)
 
 | Asset | What it does |
 | --- | --- |
 | `skills/rody-creator/SKILL.md` | Teaches an AI agent the creator-tier `ro` surface: scaffold your own app (no template clone), provision it with `ro app init`, deploy it, manage `webapp.config.json`, push assets, and go live via the share ladder (`private → family → school → public`). |
 | `skills/webapp-deploy/SKILL.md` | Tier-neutral deploy reference: build requirements, `ro app deploy` variants (`--dist-dir`, `--build-command`, `--url`), and metadata. Also installed project-local by the CLI. |
+| `skills/rody-agents/SKILL.md` | Teaches an AI agent the teacher-tier LMS surface: author 1:1 chat agents (`ro agent`), manage the school knowledge library (`ro knowledge`), apply refine/accept suggestions, verify with `ro agent say`, and publish to students. |
 | `commands/new-ro-app.md` | `/new-ro-app` — guided birth of a new app: art direction → scaffold → `ro app init` → tracking design → local review → stops before deploy. **This is the recommended way to start a new app.** |
 | `commands/go-live.md` | `/go-live` — guided ladder climb: pre-flight checks → current rung → target rung → share. |
 | `commands/ro-doctor.md` | `/ro-doctor` — diagnoses `ro` auth, environment, token, and scope problems and prints exact fixes. |
@@ -35,7 +37,7 @@ The commands are then available as `/rody-creator:new-ro-app`, `/rody-creator:go
 ```bash
 git clone https://github.com/airconcepts/rody-skills
 mkdir -p ~/.cursor/skills ~/.cursor/commands
-cp -R rody-skills/skills/rody-creator rody-skills/skills/webapp-deploy ~/.cursor/skills/
+cp -R rody-skills/skills/rody-creator rody-skills/skills/webapp-deploy rody-skills/skills/rody-agents ~/.cursor/skills/
 cp rody-skills/commands/*.md ~/.cursor/commands/
 ```
 
